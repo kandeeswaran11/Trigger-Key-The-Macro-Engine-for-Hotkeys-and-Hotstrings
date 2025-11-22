@@ -1,0 +1,49 @@
+; ___Launching NotePad and Typing...___
+<TT>vk
+<START>
+<DE 100>
+<LAUNCH>notepad.exe
+<WAIT 1000>
+typing on Notepad... 
+<END>
+
+;___HotKey___
+
+<KT>^q
+<START>
+<SEND>Hotkey Replacement Text goges here...
+<LAUNCH>notepad.exe
+<WAIT 1000>
+<SEND>Hello World!
+<ENTER>
+<MSGBOX>Hotkey Trigger Completed...
+<END>
+
+
+;___Type Email__
+
+<TT>email
+<START>
+<SEND>john.doe@example.com
+<END>
+
+;Typing Address
+
+<TT>address
+<START>
+<SEND>123 Main Street
+<ENTER>
+<SEND>Apartment 4B
+<ENTER>
+<SEND>New York, NY 10001
+<END>
+
+;___Slow typing____
+
+<TT>slowtype
+<START>
+<DE 100>
+This text will be typed slowly with 100ms delay between each character.
+<DE 0>
+<SEND>Back to normal speed typing.
+<END>
