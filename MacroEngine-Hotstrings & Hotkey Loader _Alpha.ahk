@@ -306,7 +306,7 @@ RegisterHotkey(key, commands) {
 RunMacro(scriptText) {
     OutputDebug("---- Executing Macro ----`n" scriptText "`n----")
     
-    typingDelay := 0
+    typingDelay := 10
     lines := StrSplit(scriptText, "`n", "`r")
     
     for rawLine in lines {
@@ -351,6 +351,9 @@ RunMacro(scriptText) {
         else if (line = "<TAB>") {
             Send("{Tab}")
         }
+		else if RegExMatch(line, "^<SL>(.+)", &m) {
+            SL_TypeText(Trim(m[1]), typingDelay)			
+        }
         else {
             ; Plain text line - type it and press Enter
             TypeText(line, typingDelay)
@@ -364,7 +367,7 @@ RunMacro(scriptText) {
 ;---------------------------
 ; Helper: literal text typing with optional delay
 ;---------------------------
-TypeText(text, perCharDelay := 0) {
+TypeText(text, perCharDelay := 10) {
     if (perCharDelay > 0) {
         for ch in StrSplit(text) {
             Send("{Text}" . ch)
@@ -373,4 +376,10 @@ TypeText(text, perCharDelay := 0) {
     } else {
         Send("{Text}" . text)
     }
+}
+SL_TypeText(text, perCharDelay := 10) {
+	   SetKeyDelay perCharDelay
+       SendEvent(text)
+	   SetKeyDelay 10
+    
 }
