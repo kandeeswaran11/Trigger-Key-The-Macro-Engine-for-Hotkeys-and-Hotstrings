@@ -32,6 +32,7 @@ This system is easy to edit, fully modular, and powerful for productivity script
 
 ## 📑 Examples
   ### ✔ For Key Trigger - Ctrl + L 
+--------
 \<KT>^L    
 \<START>    
 \<LAUNCH>notepad.exe    
@@ -47,7 +48,7 @@ With 100ms Delay...
 \<END>   
 
 ### ✔ Slow typing For Remote Desktop Applications  
-
+--------
 \<TT>slowtype   
 \<START>  
 \<DE 100>  
